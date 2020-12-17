@@ -8,7 +8,7 @@ exports.run = (client, message, args) => {
         .setColor('0x36393E')
         .setTitle(`ShimeX - website`)
         .setDescription(`ShimeX Bot websitesine gitmek için linke tıklayınız
-        https:/shimex.cf
+        https://shimex.cf/anasayfa.html
  ` + ``)
         .setThumbnail(client.user.avatarURL)
         .setFooter(`${message.author.username} Tarafından İstendi.`, message.author.avatarURL)
