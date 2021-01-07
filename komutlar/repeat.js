@@ -10,6 +10,7 @@ if (voiceChannel) return message.channel.send(new Discord.MessageEmbed()
 if (args[0] === "açık") {
   if (client.player.isPlaying(message.guild.id) === true) {
     client.player.setRepeatMode(message.guild.id, true);
+    client.player.setVolume(message.guild.id, 150 );
     message.channel.send(new Discord.MessageEmbed()
   .setColor('RANDOM')
   .setDescription('Şarkı tekrarlanma modu açık.'));
