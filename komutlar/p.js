@@ -26,7 +26,7 @@ client.player.setVolume(message.guild.id, 150 );
 var muzikveri = song.song;
 let muzikurll = muzikveri.url;
 let muzikid = getYouTubeID(muzikurll);;
-let muzikresim = ` https://i.ytimg.com/vi/${muzikid}/1.jpg`;
+let muzikresim = ` https://i.ytimg.com/vi/${muzikid}/hqdefault.jpg`;
 message.channel.send(new Discord.MessageEmbed()
 .setColor('RANDOM')
 .setDescription('Şu Anda Oynatılıyor: ' + muzikveri.name)
