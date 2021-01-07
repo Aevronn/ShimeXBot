@@ -19,7 +19,7 @@ if (args[0] === "genel") {
         return message.channel.send(new Discord.MessageEmbed()
         .setColor('#fff000')
         .setAuthor(`Komutlar`, client.user.avatarURL) 
-        .addField(`**:man_technologist:Genel Komutlar**\n\n\n  `, `**/bağış = bağış linkini yollar.** \n **/bilgi = bot hakkında bilgi.** \n **/yaz = bota birşeyler söyletirsiniz.** \n **/servericon = server iconunu gösterir.** \n **/iconum = profil fotoğrafınızı gösterir.** \n **/kullanıcıbilgim = bilgilerinizi gösterir.** \n **/ping = botun pingini Gösterir.** \n **/yazıtura = yazı tura atar.** \n **/komutsayısı = botta kaç tane komut olduğunu görürsünüz.** \n **/website = botun websitesine yönlendirir.** \n **/kaçıklama = kanal açıklamasını değiştirir.**`) 
+        .addField(`**:man_technologist:Genel Komutlar**\n\n\n  `, `**/temizle = belirttiğiniz kadar mesaj siler.** \n **/bağış = bağış linkini yollar.** \n **/bilgi = bot hakkında bilgi.** \n **/yaz = bota birşeyler söyletirsiniz.** \n **/servericon = server iconunu gösterir.** \n **/iconum = profil fotoğrafınızı gösterir.** \n **/kullanıcıbilgim = bilgilerinizi gösterir.** \n **/ping = botun pingini Gösterir.** \n **/yazıtura = yazı tura atar.** \n **/komutsayısı = botta kaç tane komut olduğunu görürsünüz.** \n **/website = botun websitesine yönlendirir.** \n **/kaçıklama = kanal açıklamasını değiştirir.**`) 
         .addField(`Linkler :arrow_down_small:`, `[Websitem](https://shimex.cf) 
         [Sunucum](https://discord.gg/7gTT9nW)`) 
         .setFooter(`Menüyü ${message.author.username} istedi .`, message.author.avatarURL));
