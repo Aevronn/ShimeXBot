@@ -9,6 +9,7 @@ if (voiceChannel) return message.channel.send(new Discord.MessageEmbed()
 .setDescription('Lütfen Sesli Bir Kanala Giriş Yapınız!'));
 
 if (client.player.isPlaying(message.guild.id) === true) {
+  client.player.setRepeatMode(message.guild.id, false);
   client.player.stop(message.guild.id);
   message.channel.send(new Discord.MessageEmbed()
 .setColor('RANDOM')
