@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 const Player = require('discord-music-player');
+const getYouTubeID = require('get-youtube-id');
+const yts = require( 'yt-search' )
 
 exports.run = async (client, message, args) => {
 var muzik = message.content.slice(6)
@@ -14,10 +16,21 @@ if (voiceChannel) return message.channel.send(new Discord.MessageEmbed()
 
 if (client.player.isPlaying(message.guild.id) === true) {
   var song = client.player.addToQueue(message.guild.id, muzik)
-  var muzikveri = song.song;
-  message.channel.send(new Discord.MessageEmbed()
+
+  var muzik = message.content.slice(6)
+
+  let muzikse = await yts(muzik)
+  const videos = muzikse.videos.slice( 0, 1 )
+  videos.forEach( function ( v ) {
+    let muziksid = v.videoId;
+    let muziksresim = ` https://i.ytimg.com/vi/${muziksid}/hqdefault.jpg`;
+    const views = String( v.views ).padStart( 10, ' ' )
+    message.channel.send(new Discord.MessageEmbed()
   .setColor('RANDOM')
-  .setDescription('Başarıyla Sıraya Eklendi: ' + muzikveri.name));
+  .setDescription('Başarıyla sıraya eklendi: ' + v.title)
+  .setThumbnail(muziksresim)
+  );
+  })
 }
 else{
 var song = await client.player.play(message.member.voice.channel, muzik,);
@@ -28,7 +41,8 @@ let muzikid = getYouTubeID(muzikurll);;
 let muzikresim = ` https://i.ytimg.com/vi/${muzikid}/hqdefault.jpg`;
 message.channel.send(new Discord.MessageEmbed()
 .setColor('RANDOM')
-.setDescription('şu anda oynatılıyor: ' + muzikveri.name)
+.setDescription('Şu Anda Oynatılıyor: ' + muzikveri.name)
+.setFooter('ses seviyesi otomatik olarak "150" ayarlandı')
 .setThumbnail(muzikresim));
 };
 };
