@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const Player = require('discord-music-player');
-var getYouTubeID = require('get-youtube-id');
+const getYouTubeID = require('get-youtube-id');
+const yts = require( 'yt-search' )
 
 exports.run = async (client, message, args) => {
 var muzik = message.content.slice(2)
@@ -15,10 +16,21 @@ if (voiceChannel) return message.channel.send(new Discord.MessageEmbed()
 
 if (client.player.isPlaying(message.guild.id) === true) {
   var song = client.player.addToQueue(message.guild.id, muzik)
-  var muzikveri = song.song;
-  message.channel.send(new Discord.MessageEmbed()
+
+  var muzik = message.content.slice(2)
+
+  let muzikse = await yts(muzik)
+  const videos = muzikse.videos.slice( 0, 1 )
+  videos.forEach( function ( v ) {
+    let muziksid = v.videoId;
+    let muziksresim = ` https://i.ytimg.com/vi/${muziksid}/hqdefault.jpg`;
+    const views = String( v.views ).padStart( 10, ' ' )
+    message.channel.send(new Discord.MessageEmbed()
   .setColor('RANDOM')
-  .setDescription('Başarıyla Sıraya Eklendi: ' + muzik));
+  .setDescription('Başarıyla sıraya eklendi: ' + v.title)
+  .setThumbnail(muziksresim)
+  );
+  })
 }
 else{
 var song = await client.player.play(message.member.voice.channel, muzik,);
