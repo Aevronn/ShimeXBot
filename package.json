@@ -2,12 +2,12 @@
   "name": "dene",
   "version": "0.0.1",
   "description": "",
-  "main": "bot.js",
+  "main": "shard.js",
     "engines": {
     "node": "14.15.4"
   },
   "scripts": {
-    "test": "node bot.js"
+    "test": "node shard.js"
   },
   "author": "",
   "license": "ISC",
