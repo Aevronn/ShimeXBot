@@ -2,7 +2,7 @@ const config = require('./ayarlar.json')
 const { ShardingManager } = require('discord.js');
 
 const shard = new ShardingManager('./bot.js', {
-    totalShards: 'auto', 
+    totalShards: 4, 
     token: config.token
 });
 shard.spawn();
