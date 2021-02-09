@@ -34,7 +34,6 @@ if (client.player.isPlaying(message.guild.id) === true) {
 }
 else{
 var song = await client.player.play(message.member.voice.channel, muzik,);
-client.player.setVolume(message.guild.id, 150 );
 var muzikveri = song.song;
 let muzikurll = muzikveri.url;
 let muzikid = getYouTubeID(muzikurll);;
@@ -42,7 +41,7 @@ let muzikresim = ` https://i.ytimg.com/vi/${muzikid}/hqdefault.jpg`;
 message.channel.send(new Discord.MessageEmbed()
 .setColor('RANDOM')
 .setDescription('Şu Anda Oynatılıyor: ' + muzikveri.name)
-.setFooter('ses seviyesi otomatik olarak "150" ayarlandı')
+.setFooter('ses seviyesi otomatik olarak "100" ayarlandı')
 .setThumbnail(muzikresim));
 };
 };
