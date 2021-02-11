@@ -13,7 +13,8 @@ const player = new Player(client, {
         leaveOnEnd: true,
 	leaveOnStop: true,
 	leaveOnEmpty: true,
-    quality: 'high',
+        quality: 'high',
+        volume: 200,
 });
 client.player = player;
 
