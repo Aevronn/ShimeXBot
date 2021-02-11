@@ -29,7 +29,7 @@ if (args[0] === "müzik") {
         return message.channel.send(new Discord.MessageEmbed()
         .setColor('#fff000')
         .setAuthor(`Komutlar`, client.user.avatarURL) 
-        .addField(`:musical_note:Müzik Komutları**\n  `,`**/repeat veya /tekrarla = /repeat açık yazdığınız zaman çalınan şarkı tekrarlanır kapatmak için /repeat kapalı yazmanız yeterli.** \n **/çal veya /p = girdiğiniz müzik ismini youtubede arar ve çalar.** \n **/geç = bir sonraki müziğe geçer.** \n **/durdur = müziği durdurur ve sesli kanaldan çıkar.** \n **/ses = ses düzeyini ayarlar :bangbang: önerilen ses seviyesi 150'dir :bangbang:.** \n **/sıra = çalan ve sıradaki şarkıları gösterir.** \n  **/duraklat = şarkıyı duraklatır sesli konuşmadan çıkmaz!.** \n  **/devam = duraklatılan şarkıyı devam ettirir.** \n  `) 
+        .addField(`:musical_note:Müzik Komutları**\n  `,`**/repeat veya /tekrarla = /repeat açık yazdığınız zaman çalınan şarkı tekrarlanır kapatmak için /repeat kapalı yazmanız yeterli.** \n **/çal veya /p = girdiğiniz müzik ismini youtubede arar ve çalar.** \n **/geç = bir sonraki müziğe geçer.** \n **/durdur = müziği durdurur ve sesli kanaldan çıkar.** \n **/ses = ses düzeyini ayarlar :bangbang: önerilen ses seviyesi 150'dir :bangbang:.** \n **/sıra = çalan ve sıradaki şarkıları gösterir.** \n  **/duraklat = şarkıyı duraklatır sesli konuşmadan çıkmaz!.** \n  **/devam = duraklatılan şarkıyı devam ettirir.** \n  **/spotify = Herhangi Bir Kişinin Spotify'da Dinlediği Şarkıyı Sesli Kanalda Açar.** \n `) 
         .addField(`Linkler :arrow_down_small:`, `[Websitem](https://shimex.cf) 
         [Sunucum](https://discord.gg/7gTT9nW)`) 
         .setFooter(`Menüyü ${message.author.username} istedi .`, message.author.avatarURL));
