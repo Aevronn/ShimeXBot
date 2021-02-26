@@ -18,6 +18,15 @@ const player = new Player(client, {
 });
 client.player = player;
 
+const AutoPoster = require('topgg-autoposter')
+
+const ap = AutoPoster('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjA5OTU5MjcxMTQzODM3NiIsImJvdCI6dHJ1ZSwiaWF0IjoxNjE0MzI1NDk0fQ.VUHB1yyfv-n2oa0utWvMHax3Z4SPrL0VkVZkMDggOkQ', client)
+
+ap.on('posted', () => {
+  console.log('Posted stats to Top.gg!')
+})
+
+
 const log = message => {
     console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
   };
