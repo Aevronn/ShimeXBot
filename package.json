@@ -27,6 +27,7 @@
     "ytdl-core": "^4.4.5",
     "yt-search": "^2.5.1",
     "canvacord": "^5.0.8",
+    "ffmpeg-static": "^4.2.7",
     "topgg-autoposter": "^1.1.6",
     "parse-ms": "^2.1.0"
   }
