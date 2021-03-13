@@ -10,7 +10,7 @@ if (args[0] === "general") {
         return message.channel.send(new Discord.MessageEmbed()
         .setColor('#fff000')
         .setAuthor(`Komutlar`, client.user.avatarURL) 
-        .addField(`**:man_technologist:Daily commands**\n\n\n  `, `**/info = bot info.** \n **/say = you write something and bot says it.** \n **/servericon = shows servers icon.** \n **/myicon = shows your icon.** \n **/clear = deletes as many as given number.** \n **/ping = bot ping.** \n **/website = shows website link.** \n`) 
+        .addField(`**:man_technologist:General commands**\n\n\n  `, `**/info = bot info.** \n **/say = you write something and bot says it.** \n **/servericon = shows servers icon.** \n **/myicon = shows your icon.** \n **/clear = deletes as many as given number.** \n **/ping = bot ping.** \n **/website = shows website link.** \n`) 
         .addField(`Linkler :arrow_down_small:`, `[My Website](https://shimex.cf) 
         [My server](https://discord.gg/7gTT9nW)`) 
         .setFooter(`Asked by ${message.author.username}.`, message.author.avatarURL));
@@ -30,7 +30,7 @@ return message.channel.send(new Discord.MessageEmbed()
 
 .setColor('#fff000')
 .setAuthor(`categories`, client.user.avatarURL) 
-.addField(`:man_technologist:daily \n`, `/help general  `) 
+.addField(`:man_technologist:General \n`, `/help general  `) 
 .addField(`:musical_note:Music\n`, `/help music`) 
 .addField(`Links :arrow_down_small:`, `[My Website](https://shimex.cf) 
 [My Server](https://discord.gg/7gTT9nW)`) 
