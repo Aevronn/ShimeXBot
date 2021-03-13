@@ -14,7 +14,7 @@ exports.run = (client, message, args) => {
          .setColor('RANDOM')
          .setDescription('Please join a voice channel!'));
   
-          if (user.presence.activities.length === 0 || status.name !== "Spotify" && status.type !== "LISTENING") return message.channel.send("this user is listening song from spotify");
+          if (user.presence.activities.length === 0 || status.name !== "Spotify" && status.type !== "LISTENING") return message.channel.send("this user isn't listening song from spotify");
 
           if (status !== null && status.type === "LISTENING" && status.name === "Spotify" && status.assets !== null & client.player.isPlaying(message.guild.id) === false) {
             let image = `https://i.scdn.co/image/${status.assets.largeImage.slice(8)}`,
