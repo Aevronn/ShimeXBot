@@ -3,19 +3,11 @@ const client = new Discord.Client();
 const ayarlar = require('./ayarlar.json');
 const fs = require('fs');
 const moment = require('moment');
-const chalk = require('chalk')
+const chalk = require('chalk');
 require('./util/eventLoader')(client);
-
 var prefix = ayarlar.prefix;
-
-const { Player } = require("discord-music-player");
-const player = new Player(client, {
-        leaveOnEnd: true,
-	leaveOnStop: true,
-	leaveOnEmpty: true,
-        quality: 'high',
-        volume: 200,
-});
+const { Player } = require("discord-player");
+const player = new Player(client);
 client.player = player;
 
 const AutoPoster = require('topgg-autoposter')
@@ -26,25 +18,24 @@ ap.on('posted', () => {
   console.log('Posted stats to Top.gg!')
 })
 
-
 const log = message => {
     console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
   };
 
-client.commands = new Discord.Collection();
-client.aliases = new Discord.Collection();
-fs.readdir('./komutlar/', (err, files) => {
-  if (err) console.error(err);
-  log(`${files.length} komut yüklenecek.`);
-  files.forEach(f => {
-    let props = require(`./komutlar/${f}`);
-    log(`Yüklenen komut: ${props.help.name}.`);
-    client.commands.set(props.help.name, props);
-    props.conf.aliases.forEach(alias => {
-      client.aliases.set(alias, props.help.name);
-    });
-  });
-});
+ client.commands = new Discord.Collection();
+ client.aliases = new Discord.Collection();
+ fs.readdir('./komutlar/', (err, files) => {
+   if (err) console.error(err);
+   log(`${files.length} komut yüklenecek.`);
+   files.forEach(f => {
+     let props = require(`./komutlar/${f}`);
+     log(`Yüklenen komut: ${props.help.name}.`);
+     client.commands.set(props.help.name, props);
+     props.conf.aliases.forEach(alias => {
+       client.aliases.set(alias, props.help.name);
+     });
+   });
+ });
 
 client.reload = command => {
   return new Promise((resolve, reject) => {
@@ -96,5 +87,47 @@ client.load = command => {
       }
     });
   };
+
+/////////////bot-dm////////////////
+
+client.on("message", msg => {
+  var dm = client.channels.cache.get("733344891148435457")
+  if(msg.channel.type === "dm") {
+  if(msg.author.id === client.user.id) return;
+  const botdm = new Discord.MessageEmbed()
+  .setTitle(`${client.user.username} Dm`)
+  .setTimestamp()
+  .setColor("BLUE")
+  .setThumbnail(`${msg.author.avatarURL()}`)
+  .addField("sender", msg.author.tag)
+  .addField("sender ID", msg.author.id)
+  .addField("message", msg.content)
   
+  dm.send(botdm)
+  
+  }
+  if(msg.channel.bot) return;
+  });
+
+///////////////////////////////////
+
+client.player
+
+.on('playlistAdd', (message, queue, playlist) => 
+message.channel.send(` **${playlist.title}** has been added to the queue **(${playlist.tracks.length} songs)**.`))
+
+
+.on('queueEnd', (message, queue) => 
+message.channel.send(` Music stopped as there is no more music in the queue.`))
+
+.on('channelEmpty', (message, queue) => 
+message.channel.send(` Music stopped as there is no more member in the voice channel.`))
+
+.on('botDisconnect', (message) => 
+message.channel.send(` Music stopped as I have been disconnected from the channel.`))
+
+/////////////////////////////////
+
 client.login(ayarlar.token);
+
+
