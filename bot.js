@@ -6,8 +6,12 @@ const moment = require('moment');
 const chalk = require('chalk');
 require('./util/eventLoader')(client);
 var prefix = ayarlar.prefix;
-const { Player } = require("discord-player");
-const player = new Player(client);
+const { Player } = require("discord-music-player");
+const player = new Player(client, {
+  timeout: 5,
+  volume: 200,
+  quality: 'high',
+});
 client.player = player;
 
 const AutoPoster = require('topgg-autoposter')
@@ -110,21 +114,12 @@ client.on("message", msg => {
   });
 
 ///////////////////////////////////
-
 client.player
-
-.on('playlistAdd', (message, queue, playlist) => 
-message.channel.send(` **${playlist.title}** has been added to the queue **(${playlist.tracks.length} songs)**.`))
-
-
-.on('queueEnd', (message, queue) => 
-message.channel.send(` Music stopped as there is no more music in the queue.`))
-
-.on('channelEmpty', (message, queue) => 
-message.channel.send(` Music stopped as there is no more member in the voice channel.`))
-
-.on('botDisconnect', (message) => 
-message.channel.send(` Music stopped as I have been disconnected from the channel.`))
+    .on('playlistAdd',  (message, queue, playlist) => 
+        message.channel.send(new Discord.MessageEmbed()
+        .setColor('RANDOM')
+        .setDescription(`${playlist.name} playlist with ${playlist.videoCount} songs has been added to the queue!`)
+        );
 
 /////////////////////////////////
 
