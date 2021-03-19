@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
   const istatistikler = new Discord.MessageEmbed()
     .setColor("RANDOM")
     .setTimestamp()
-    .setFooter("© 2020 ro-BOT", client.user.avatarURL())
+    .setFooter( client.user.avatarURL())
     .addField("» **Botun Sahibi**", "<@321959631335194634>")
     .addField("» **Gecikme süreleri**","Mesaj Gecikmesi: {ping1} ms \nBot Gecikmesi: {ping2} ms"
         .replace("{ping1}", new Date().getTime() - message.createdTimestamp)
@@ -23,7 +23,6 @@ exports.run = async (client, message, args) => {
     .addField("» **Node.JS sürüm**", `${process.version}`, true)
     .addField("» **Müzik Çalınan Sunucu Sayısı**", client.voice.connections.size, true)
     .addField("» **CPU**",`\`\`\`md\n${os.cpus().map(i => `${i.model}`)[0]}\`\`\``,true)
-    .addField("» **Bit**", `\`${os.arch()}\``, true)
     .addField("» **İşletim Sistemi**", `\`\`${os.platform()}\`\``, true)
     .addField("**» Bot Davet**"," [Davet Et](https://discordapp.com/oauth2/authorize?client_id=" + client.user.id + "&scope=bot&permissions=8)");
   return message.channel.send(istatistikler);
