@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const Player = require('discord-player');
 
 exports.run = async (client, message, args) => {
 if(!message.member.voice.channel) { return message.channel.send(new MessageEmbed().setDescription(`${client.emotes.error} | You're not in voice channel.`)) }
