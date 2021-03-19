@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
-const Player = require('discord-player');
 const getYouTubeID = require('get-youtube-id');
 const yts = require( 'yt-search' )
+
 
 exports.run = async (client, message, args) => {
 if(!message.member.voice.channel) { return message.channel.send(new MessageEmbed().setDescription(` You're not in voice channel.`)) }
@@ -10,9 +10,15 @@ if(message.guild.me.voice.channel && message.member.voice.channel.id !== message
 
 if(!args[0]) { return message.channel.send(new MessageEmbed().setDescription(` Please indicate the title of a song.`)) }
 
+if (args[0].startsWith("https")) {
+  await client.player.playlist(message, {
+    search: args.join(' '),
+});
+Mesaj.channel.send('Wait a few seconds').then(a => a.delete({ timeout: 3000 }));
+  }
 
 if (client.player.isPlaying(message) === true) {
-  client.player.play(message, args.join(" "), { firstResult: true })
+  let song = await client.player.addToQueue(message, args.join(' '));
   let muzikse = await yts(args.join(" "))
   const videos = muzikse.videos.slice( 0, 1 )
   videos.forEach( function ( v ) {
@@ -27,7 +33,8 @@ if (client.player.isPlaying(message) === true) {
 })
 }
 else{
-  client.player.play(message, args.join(" "), { firstResult: true })
+  
+  let song = await client.player.play(message, args.join(' '));
   let muzikse = await yts(args.join(" "))
   const videos = muzikse.videos.slice( 0, 1 )
   videos.forEach( function ( v ) {
@@ -40,6 +47,8 @@ else{
     .setThumbnail(muziksresim)
     );
 })};
+
+
 
 };
 
