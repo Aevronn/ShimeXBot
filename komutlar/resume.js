@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const Player = require('discord-player');
 
 exports.run = async (client, message, args) => {
     if (!message.member.voice.channel) return message.channel.send(` You're not in a voice channel !`);
@@ -14,7 +13,7 @@ exports.run = async (client, message, args) => {
 
     message.channel.send(new Discord.MessageEmbed()
     .setColor('RANDOM')
-    .setDescription(` Song ${client.player.getQueue(message).playing.title} resumed !`)
+    .setDescription(` Song resumed !`)
     );
 };
 
