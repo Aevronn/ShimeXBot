@@ -114,11 +114,12 @@ client.on("message", msg => {
   });
 
 ///////////////////////////////////
+
 client.player
     .on('playlistAdd',  (message, queue, playlist) => 
         message.channel.send(new Discord.MessageEmbed()
         .setColor('RANDOM')
-        .setDescription(`${playlist.name} playlist with ${playlist.videoCount} songs has been added to the queue!`)
+        .setDescription(`${playlist.name} playlist with ${playlist.videoCount} songs has been added to the queue!`))
         );
 
 /////////////////////////////////
