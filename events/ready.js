@@ -9,7 +9,7 @@ module.exports = client => {
   console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] BOT: Aktif, Komutlar yüklendi!`);
   console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] BOT: ${client.user.username} ismi ile giriş yapıldı!`);
   client.user.setStatus("Online");
-  client.user.setActivity(`Shimex | /help | https://shimex.cf `);
+  client.user.setActivity(`Shimex | -help | https://shimex.cf `);
  };
 
 
