@@ -14,7 +14,7 @@
   "dependencies": {
     "@discordjs/opus": "^0.3.3",
     "chalk": "^4.1.0",
-    "discord-music-player": "^7.0.0-fix3",
+    "discord-music-player": "^7.1.4",
     "discord.js": "^12.5.1",
     "fs": "0.0.1-security",
     "get-youtube-id": "^1.0.1",
