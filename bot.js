@@ -16,7 +16,7 @@ client.player = player;
 
 const AutoPoster = require('topgg-autoposter')
 
-const ap = AutoPoster('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjA5OTU5MjcxMTQzODM3NiIsImJvdCI6dHJ1ZSwiaWF0IjoxNjE2OTM0MDIxfQ.JdUB54JwhyBEkOPDJ-rv8Ruce16KIftbvsXjw_YptF4', client)
+const ap = AutoPoster('', client)
 
 ap.on('posted', () => {
   console.log('Posted stats to Top.gg!')
@@ -95,7 +95,7 @@ client.load = command => {
 /////////////bot-dm////////////////
 
 client.on("message", msg => {
-  var dm = client.channels.cache.get("733344891148435457")
+  var dm = client.channels.cache.get("")
   if(msg.channel.type === "dm") {
   if(msg.author.id === client.user.id) return;
   const botdm = new Discord.MessageEmbed()
